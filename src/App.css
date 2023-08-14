@@ -177,7 +177,15 @@
 	box-shadow:1px inset -5px -5px #696b6cd7;
 }
 
-
+.GoUp-circle{
+	display: block;
+	width: max-content;
+	height: max-content;
+	background-color: #d8db1e;
+	position: sticky;
+	bottom: 2%;
+	border-radius: 100%;
+}
 
 
 

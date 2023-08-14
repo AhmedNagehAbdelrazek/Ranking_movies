@@ -1,14 +1,11 @@
 import "./App.css";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { MainNavBar } from "./Components/NavBar";
 import { Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RankItems } from "./Components/RankItems";
-import { fetchMovies, fetchMoviesWithPageNumber } from "./rtk/Slices/MoviesSlice";
-import axios from "axios";
-import { IMG_W500 } from "./Utilies";
-import { Movie } from "./Components/Movie";
+import { fetchMoviesWithPageNumber } from "./rtk/Slices/MoviesSlice";
 import { MoviesList } from "./Components/MoviesList";
 
 function App() {
@@ -23,15 +20,48 @@ function App() {
     <>
       <MainNavBar />
       <Container>
+        <span id="GoUp"></span>
         <Routes>
           <Route
             path="/"
-            element={<div className="row"><MoviesList/></div>}></Route>
+            element={
+              <div className="row">
+                <MoviesList />
+              </div>
+            }
+          ></Route>
           <Route
             path="/RankItems"
             element={<RankItems movies={storedItems} />}
           ></Route>
         </Routes>
+        <a href="#GoUp" className="GoUp-circle">
+          <svg
+            width="35px"
+            height="35px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" strokeWidth={0} />
+            <g
+              id="SVGRepo_tracerCarrier"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <g id="SVGRepo_iconCarrier">
+              {"{"}" "{"}"}
+              <path
+                d="M12 6V18M12 6L7 11M12 6L17 11"
+                stroke="#ffffff"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              {"{"}" "{"}"}
+            </g>
+          </svg>
+        </a>
       </Container>
     </>
   );
